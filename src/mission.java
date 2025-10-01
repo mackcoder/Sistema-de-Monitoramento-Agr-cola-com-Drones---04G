@@ -39,9 +39,10 @@ public class Mission {
     // Getters
     public String getIdMission() { return idMission; }
     public String getDescricao() { return descricao; }
-    public StatusMissao getStatus() { return status; }
+    public StatusMission getStatus() { return status; }
     public LocalDateTime getDataHoraInicio() { return dataHoraInicio; }
     public LocalDateTime getDataHoraFim() { return dataHoraFim; }
     public List<String> getObjetivos() { return objetivos; }
 }
+
 
