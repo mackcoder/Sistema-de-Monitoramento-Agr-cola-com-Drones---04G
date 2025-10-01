@@ -1,12 +1,12 @@
-public class Missao {
-    private String idMissao;
+public class Mission {
+    private String idMission;
     private String areaDesignada;
     private LocalDate dataAgendada;
     private String[] sensoresUtilizados;
     private String idDrone;
 
-    public Missao(String idMissao, String areaDesignada, LocalDate dataAgendada, String[] sensoresUtilizados, String idDrone) {
-        this.idMissao = idMissao;
+    public Missao(String idMission, String areaDesignada, LocalDate dataAgendada, String[] sensoresUtilizados, String idDrone) {
+        this.idMission = idMission;
         this.areaDesignada = areaDesignada;
         this.dataAgendada = dataAgendada;
         this.sensoresUtilizados = sensoresUtilizados;
@@ -14,7 +14,7 @@ public class Missao {
     }
 
     // Verifica se a missão está agendada para hoje
-    public boolean isMissaoHoje() {
+    public boolean isMissionHoje() {
         return LocalDate.now().equals(dataAgendada);
     }
 
@@ -24,7 +24,7 @@ public class Missao {
     }
 
     // Getters
-    public String getIdMissao() { return idMissao; }
+    public String getIdMission() { return idMission; }
     public String getAreaDesignada() { return areaDesignada; }
     public LocalDate getDataAgendada() { return dataAgendada; }
     public String[] getSensoresUtilizados() { return sensoresUtilizados; }
@@ -39,3 +39,4 @@ public class Missao {
         this.sensoresUtilizados = novosSensores;
     }
 }
+
