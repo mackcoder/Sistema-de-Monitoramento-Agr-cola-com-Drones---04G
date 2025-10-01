@@ -1,42 +1,47 @@
+import java.time.LocalDateTime;
+
 public class Mission {
     private String idMission;
-    private String areaDesignada;
-    private LocalDate dataAgendada;
-    private String[] sensoresUtilizados;
-    private String idDrone;
+    private String descricao;
+    private StatusMissao status;
+    private LocalDateTime dataHoraInicio;
+    private LocalDateTime dataHoraFim;
+    private List<String> objetivos;
 
-    public Missao(String idMission, String areaDesignada, LocalDate dataAgendada, String[] sensoresUtilizados, String idDrone) {
+    public Missao(String idMission, String descricao, List<String> objetivos) {
         this.idMission = idMission;
-        this.areaDesignada = areaDesignada;
-        this.dataAgendada = dataAgendada;
-        this.sensoresUtilizados = sensoresUtilizados;
-        this.idDrone = idDrone;
+        this.descricao = descricao;
+        this.status = StatusMissao.PENDENTE;
+        this.objetivos = objetivos;
     }
 
-    // Verifica se a missão está agendada para hoje
-    public boolean isMissionHoje() {
-        return LocalDate.now().equals(dataAgendada);
+    public boolean validar() {
+        return descricao != null && !descricao.isEmpty() &&
+               objetivos != null && !objetivos.isEmpty();
     }
 
-    // Verifica se sensores estão definidos
-    public boolean sensoresValidos() {
-        return sensoresUtilizados != null && sensoresUtilizados.length > 0;
+    public void iniciar() {
+        if (validar()) {
+            this.status = StatusMission.EM_ANDAMENTO;
+            this.dataHoraInicio = LocalDateTime.now();
+            System.out.println("🚁 Missão iniciada: " + idMission);
+        } else {
+            System.out.println("❌ Missão inválida. Não pode ser iniciada.");
+        }
+    }
+
+    public void encerrar() {
+        this.status = StatusMission.CONCLUIDA;
+        this.dataHoraFim = LocalDateTime.now();
+        System.out.println("✅ Missão encerrada: " + idMission);
     }
 
     // Getters
     public String getIdMission() { return idMission; }
-    public String getAreaDesignada() { return areaDesignada; }
-    public LocalDate getDataAgendada() { return dataAgendada; }
-    public String[] getSensoresUtilizados() { return sensoresUtilizados; }
-    public String getIdDrone() { return idDrone; }
-
-    // Setters
-    public void setDataAgendada(LocalDate novaData) {
-        this.dataAgendada = novaData;
-    }
-
-    public void setSensoresUtilizados(String[] novosSensores) {
-        this.sensoresUtilizados = novosSensores;
-    }
+    public String getDescricao() { return descricao; }
+    public StatusMissao getStatus() { return status; }
+    public LocalDateTime getDataHoraInicio() { return dataHoraInicio; }
+    public LocalDateTime getDataHoraFim() { return dataHoraFim; }
+    public List<String> getObjetivos() { return objetivos; }
 }
 
