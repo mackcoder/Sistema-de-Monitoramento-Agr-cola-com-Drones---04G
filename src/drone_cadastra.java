@@ -12,17 +12,20 @@ public class Drone {
     }
 
     public void receberParametrosMission(Mission missao) {
-        System.out.println("Parâmetros da missão recebidos para o drone " + idDrone);
+        System.out.println("📡 Drone " + idDrone + " recebeu missão: " + m.getDescricao());
+    }
         // Lógica para armazenar ou validar missão
     }
 
     public void executarMission() {
+        m.iniciar();
         if (status == StatusDrone.PRONTO) {
             System.out.println("Drone " + idDrone + " executando missão...");
             status = StatusDrone.EM_MISSAO;
         } else {
             System.out.println("Drone não está pronto para missão.");
         }
+        m.encerrar();
     }
 
     public void retornarBase() {
@@ -48,4 +51,5 @@ public class Drone {
     public void setStatus(StatusDrone status) { this.status = status; }
     public void setAutonomia(float autonomia) { this.autonomia = autonomia; }
 }
+
 
