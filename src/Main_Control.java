@@ -11,9 +11,9 @@ public class Main_Control {
         System.out.print("Senha: ");
         String senha = scanner.nextLine();
 
-        if (usuario.autenticar(login, senha)) {
+        if (valida.validar(usuario, login, password)) {
             System.out.println("✅ Login autorizado. Bem-vindo, " + usuario.getNome());
-
+            
             Drone drone1 = new Drone("DRN001", "DJI Phantom", StatusDrone.PRONTO, 25.0f);
 
             Missao missao = new Missao("MS003", "Monitoramento da Área 5 - Milho",
@@ -29,9 +29,10 @@ public class Main_Control {
             drone1.retornarBase();
             System.out.println("Status final do drone: " + drone1.getStatus());
         } else {
-            System.out.println("❌ Acesso negado.");
+            System.out.println("❌ Login ou senha incorretos. Acesso negado.");
         }
 
         scanner.close();
     }
 }
+
