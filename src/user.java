@@ -9,11 +9,6 @@ public class User {
         this.password = password;
     }
 
-    // Método de autenticação simples
-    public boolean autenticar(String loginInformado, String senhaInformada) {
-        return this.login.equals(loginInformado) && this.senha.equals(senhaInformada);
-    }
-
     public String getNome() { return nome; }
     public String getLogin() { return login; }
     public String getpassword() { return password; }
@@ -22,5 +17,6 @@ public class User {
     public void setLogin(String login) { this.login = login; }
     public void setpassword(String password) { this.senha = password; }
 }
+
 
 
