@@ -11,12 +11,12 @@ public class Drone {
         this.autonomia = autonomia;
     }
 
-    public void receberParametrosMissao(Missao missao) {
+    public void receberParametrosMission(Mission missao) {
         System.out.println("Parâmetros da missão recebidos para o drone " + idDrone);
         // Lógica para armazenar ou validar missão
     }
 
-    public void executarMissao() {
+    public void executarMission() {
         if (status == StatusDrone.PRONTO) {
             System.out.println("Drone " + idDrone + " executando missão...");
             status = StatusDrone.EM_MISSAO;
@@ -48,3 +48,4 @@ public class Drone {
     public void setStatus(StatusDrone status) { this.status = status; }
     public void setAutonomia(float autonomia) { this.autonomia = autonomia; }
 }
+
