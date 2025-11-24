@@ -1,17 +1,9 @@
-[
-  {"box_2d": [28, 345, 291, 471], "label": "ControladorPrincipal (:MainDrone)"},
-  {"box_2d": [35, 63, 436, 189], "label": "usuario :UserDrone"},
-  {"box_2d": [232, 125, 641, 242], "label": ":ValidadorUser"},
-  {"box_2d": [450, 344, 939, 471], "label": "drone1 :Drone"},
-  {"box_2d": [436, 59, 714, 196], "label": "bd :BancoDeDronesSimulado"},
-  {"box_2d": [737, 610, 975, 720], "label": "missao :Mission"},
+sequenceDiagram
+    participant Usuario
+    participant Drone
+    participant Missao
 
-  {"link": [28, 345, 35, 63], "label": "1: <<create>>(nome, login, senha)"},
-  {"link": [28, 345, 232, 125], "label": "2: validar(usuario, loginConfirmado, senhaConfirmada)"},
-  {"link": [232, 125, 35, 63], "label": "2.1: getLogin()\n2.2: getSenha()"},
-  {"link": [28, 345, 35, 63], "label": "3: getNome()"},
-  {"link": [28, 345, 450, 344], "label": "4: <<create>>(\"RDBLL5\", ...)\n9: receberMissao(missao)\n10: iniciarMissao()\n11: detectarEventoCritico()\n12: encerrarMissao()\n13: retornarBase()\n14: getStatus()"},
-  {"link": [28, 345, 436, 59], "label": "5: <<create>>\n6: inserirDrone(drone1)\n7: listarDrones()"},
-  {"link": [28, 345, 737, 610], "label": "8: <<create>>(\"MS003\", ...)"},
-  {"link": [450, 344, 737, 610], "label": "10.1: validar()\n10.2: iniciar()\n12.1: encerrar()"}
-]
+    Usuario->>Drone: receberMissao(missao)
+    Drone->>Missao: iniciar()
+    Usuario->>Drone: iniciarMissao()
+    Note right of Missao: Collaboration: Usuario controls Drone, which executes Missao
