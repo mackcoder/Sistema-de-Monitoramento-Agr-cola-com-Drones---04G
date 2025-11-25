@@ -16,3 +16,10 @@ enum StatusMissao {
     EM_ANDAMENTO,
     CONCLUIDA
 }
+
+enum StateTransition{
+    DESCONECTED,
+    AUTHENTICATING,
+    USER_AUTHENTICATED,
+    BLOQUED
+}

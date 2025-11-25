@@ -3,10 +3,6 @@
     - Naoto Ushizaki - 10437445
 */
 
-import java.util.Objects;
-import java.util.regex.Pattern;
-import java.math.BigDecimal;
-
 package PROJETO_DRONE;
 
 class ValorInvalidoException extends RuntimeException{
@@ -17,12 +13,6 @@ class ValorInvalidoException extends RuntimeException{
 
 class InvalidTokenException extends RuntimeException{
     public InvalidTokenException(String message){
-        super(message);
-    }
-}
-
-class AuthenticateException extends RuntimeException{
-    public AuthenticateException(String message){
         super(message);
     }
 }
